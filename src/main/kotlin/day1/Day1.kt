@@ -2,6 +2,8 @@ package day1
 
 import util.readFile
 
+typealias FoodCaloriesList = List<Int>
+
 fun main() {
     val lines = readFile("input/day1.txt")
     val parsedInput = parseInput(lines)
@@ -13,20 +15,21 @@ fun main() {
     println("Part 2: $top3TotalOfCalories")
 }
 
-fun parseInput(lines: String): List<List<Int>> {
+fun parseInput(lines: String): List<FoodCaloriesList> {
     return lines.split("\n\n")
-        .map { groupOfLines ->
-            groupOfLines.split("\n").filter { it.isNotBlank() }
-                .map { line -> line.toInt() }
+        .map { linesPerElf ->
+            linesPerElf.split("\n")
+                .filter { it.isNotBlank() }
+                .map { caloriesLine -> caloriesLine.toInt() }
         }
 }
 
-fun getLargestTotalOfCalories(calories: List<List<Int>>): Int {
-    return calories.maxOf { it.sum() }
+fun getLargestTotalOfCalories(caloriesListPerElf: List<FoodCaloriesList>): Int {
+    return caloriesListPerElf.maxOf { it.sum() }
 }
 
-fun getTop3TotalOfCalories(calories: List<List<Int>>): Int {
-    return calories.map { it.sum() }
+fun getTop3TotalOfCalories(caloriesListPerElf: List<FoodCaloriesList>): Int {
+    return caloriesListPerElf.map { it.sum() }
         .sorted()
         .reversed()
         .subList(0, 3)
