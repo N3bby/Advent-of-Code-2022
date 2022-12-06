@@ -12,6 +12,7 @@ fun readFile(path: String): String {
     return BufferedReader(FileReader(path)).readText()
 }
 
-fun readInput(day: Int): String {
-    return readFile("input/day$day.txt").trim()
+fun readInput(day: Int, trim: Boolean = true): String {
+    val content = readFile("input/day$day.txt")
+    return if (trim) content.trim() else content
 }

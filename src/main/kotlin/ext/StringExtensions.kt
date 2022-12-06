@@ -7,3 +7,16 @@ fun String.splitAtIndex(index: Int): Pair<String, String> {
 fun String.splitInTwo(): Pair<String, String> {
     return splitAtIndex(this.length / 2)
 }
+
+fun String.transpose(): String {
+    val lines = lines()
+    return (0..lines.maxOf { it.length })
+        .map { index -> lines.map { line -> line.getOrNull(index) ?: ' ' }.joinToString("") }
+        .joinToString("\n")
+}
+
+fun String.reversedPerLine(): String {
+    return lines()
+        .map { it.reversed() }
+        .joinToString("\n")
+}
