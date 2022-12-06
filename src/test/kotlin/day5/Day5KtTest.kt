@@ -56,4 +56,36 @@ class Day5KtTest {
         assertEquals("RLFNRTNFB", cargoCrane.getTopCrateOfEveryStack())
     }
 
+    @Test
+    fun example2() {
+        val input = """
+            [D]    
+        [N] [C]    
+        [Z] [M] [P]
+         1   2   3 
+        
+        move 1 from 2 to 1
+        move 3 from 1 to 3
+        move 2 from 2 to 1
+        move 1 from 1 to 2
+        """.trimIndent()
+
+        val parsed = parseInput(input)
+        val cargoCrane = CargoCrane9001(parsed.first, parsed.second)
+
+        cargoCrane.executeMoves()
+        assertEquals("MCD", cargoCrane.getTopCrateOfEveryStack())
+    }
+
+    @Test
+    fun part2() {
+        val input = readInput(5, false)
+
+        val parsed = parseInput(input)
+        val cargoCrane = CargoCrane9001(parsed.first, parsed.second)
+
+        cargoCrane.executeMoves()
+        assertEquals("RLFNRTNFB", cargoCrane.getTopCrateOfEveryStack())
+    }
+
 }
