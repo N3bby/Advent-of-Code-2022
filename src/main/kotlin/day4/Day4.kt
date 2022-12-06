@@ -1,15 +1,16 @@
 package day4
 
+import ext.contains
+import ext.overlaps
+
 data class ElfPair(val assignment1: IntRange, val assignment2: IntRange) {
 
-    fun oneFullyContainsTheOther(): Boolean {
-        return (assignment1.contains(assignment2.first) && assignment1.contains(assignment2.last))
-                || (assignment2.contains(assignment1.first) && assignment2.contains(assignment1.last))
+    fun oneAssignmentFullyCoversTheOther(): Boolean {
+        return assignment1.contains(assignment2) || assignment2.contains(assignment1)
     }
 
-    fun anyOverlap(): Boolean {
-        return (assignment1.contains(assignment2.first) || assignment1.contains(assignment2.last))
-                || (assignment2.contains(assignment1.first) || assignment2.contains(assignment1.last))
+    fun assignmentsOverlap(): Boolean {
+        return assignment1.overlaps(assignment2)
     }
 }
 

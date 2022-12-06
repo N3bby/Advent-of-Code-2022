@@ -18,7 +18,7 @@ class Day4Test {
         """.trimIndent()
 
         val pairs = parsePairs(input);
-        assertEquals(2, pairs.filter{ it.oneFullyContainsTheOther() }.size)
+        assertEquals(2, pairs.filter{ it.oneAssignmentFullyCoversTheOther() }.size)
     }
 
     @Test
@@ -26,7 +26,7 @@ class Day4Test {
         val input = readInput(4)
 
         val pairs = parsePairs(input);
-        assertEquals(567, pairs.filter{ it.oneFullyContainsTheOther() }.size)
+        assertEquals(567, pairs.filter{ it.oneAssignmentFullyCoversTheOther() }.size)
     }
 
     @Test
@@ -41,7 +41,7 @@ class Day4Test {
         """.trimIndent()
 
         val pairs = parsePairs(input);
-        assertEquals(4, pairs.filter{ it.anyOverlap() }.size)
+        assertEquals(4, pairs.filter{ it.assignmentsOverlap() }.size)
     }
 
     @Test
@@ -49,7 +49,7 @@ class Day4Test {
         val input = readInput(4)
 
         val pairs = parsePairs(input);
-        assertEquals(907, pairs.filter{ it.anyOverlap() }.size)
+        assertEquals(907, pairs.filter{ it.assignmentsOverlap() }.size)
     }
 
 }
