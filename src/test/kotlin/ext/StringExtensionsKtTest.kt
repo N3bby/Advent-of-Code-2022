@@ -3,7 +3,7 @@ package ext
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class StringExtensionsTest {
+class StringExtensionsKtTest {
 
     @Test
     fun string_splitInTwo() {

@@ -3,7 +3,7 @@ package day1
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class Day1Test {
+class Day1KtTest {
 
     @Test
     fun example1() {

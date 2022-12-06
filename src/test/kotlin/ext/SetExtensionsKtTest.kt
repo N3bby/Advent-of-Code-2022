@@ -3,7 +3,7 @@ package ext
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class SetExtensionsTest {
+class SetExtensionsKtTest {
 
     @Test
     fun intersect_set_of_sets() {

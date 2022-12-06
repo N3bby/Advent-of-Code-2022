@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import util.readInput
 
-class Day4Test {
+class Day4KtTest {
 
     @Test
     fun example1() {
