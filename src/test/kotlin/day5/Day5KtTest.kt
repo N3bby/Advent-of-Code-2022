@@ -85,7 +85,7 @@ class Day5KtTest {
         val cargoCrane = CargoCrane9001(parsed.first, parsed.second)
 
         cargoCrane.executeMoves()
-        assertEquals("RLFNRTNFB", cargoCrane.getTopCrateOfEveryStack())
+        assertEquals("MHQTLJRLB", cargoCrane.getTopCrateOfEveryStack())
     }
 
 }
