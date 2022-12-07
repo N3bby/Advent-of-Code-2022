@@ -1,8 +1,6 @@
 package day5
 
-import ext.reversedPerLine
-import ext.stackOf
-import ext.transpose
+import ext.*
 import java.util.*
 
 data class CrateStack(val identifier: Int, val stack: Stack<Char>)
@@ -63,16 +61,17 @@ fun parseCrateStacks(stacksInput: String): List<CrateStack> {
         .transpose()
         .reversedPerLine()
         .lines()
-        .filterIndexed { index, _ -> index % 4 == 1 }
+        .steppedBy(4, 1)
 
     return stackLines.map { line ->
-        val tokens = line.split("").filter { it.isNotBlank() }
+        val (identifier, crates) = line
+            .trim()
+            .splitAtIndex(1)
 
-        val stackIdentifier = tokens[0].toInt()
-        val crates = tokens.subList(1, tokens.size).map { it[0] }
-        val stack = stackOf(crates)
-
-        CrateStack(stackIdentifier, stack)
+        CrateStack(
+            identifier.toInt(),
+            stackOf(crates.toList())
+        )
     }
 }
 
