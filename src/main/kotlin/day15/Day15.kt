@@ -9,8 +9,7 @@ import kotlin.math.sin
 
 data class Bounds(val minX: Int, val maxX: Int, val minY: Int, val maxY: Int)
 
-data class Position<T>(val x: T, val y: T) {
-}
+data class Position<T>(val x: T, val y: T)
 
 fun Position<Int>.manhattanDistanceFrom(other: Position<Int>): Int {
     return abs(x - other.x) + abs(y - other.y)
