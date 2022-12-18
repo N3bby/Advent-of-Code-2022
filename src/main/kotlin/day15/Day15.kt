@@ -101,7 +101,7 @@ fun findBeacon(sensors: List<Sensor>, minCoord: Int, maxCoord: Int): Position<In
         .parallelStream()
         .flatMap { it.getPositionsSkirtingRange().stream() }
         .filter { it.x in minCoord..maxCoord && it.y in minCoord .. maxCoord }
-        .filter { sensors.all { sensor -> !sensor.isPositionChecked(it) } }
+        .filter { sensors.none { sensor -> sensor.isPositionChecked(it) } }
         .findAny().orElseThrow()
 }
 
