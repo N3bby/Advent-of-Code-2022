@@ -3,9 +3,6 @@ package day15
 import day15.Step.X
 import day15.Step.Y
 import kotlin.math.abs
-import kotlin.math.cos
-import kotlin.math.max
-import kotlin.math.sin
 
 data class Bounds(val minX: Int, val maxX: Int, val minY: Int, val maxY: Int)
 
@@ -40,17 +37,15 @@ fun Position<Int>.positionsTo(other: Position<Int>, firstStep: Step): List<Posit
 
 data class Sensor(val position: Position<Int>, val closestBeacon: Position<Int>) {
 
-    private fun getCheckedRange(): Int {
-        return position.manhattanDistanceFrom(closestBeacon)
-    }
+    private val checkedRange = position.manhattanDistanceFrom(closestBeacon)
 
-    val smallestXPos: Int get() = position.x - getCheckedRange()
-    val largestXPos: Int get() =  position.x + getCheckedRange()
-    val smallestYPos: Int get() =  position.y - getCheckedRange()
-    val largestYPos: Int get() =  position.y + getCheckedRange()
+    val smallestXPos: Int get() = position.x - checkedRange
+    val largestXPos: Int get() =  position.x + checkedRange
+    val smallestYPos: Int get() =  position.y - checkedRange
+    val largestYPos: Int get() =  position.y + checkedRange
 
     fun isPositionChecked(position: Position<Int>): Boolean {
-        return position.manhattanDistanceFrom(this.position) <= getCheckedRange()
+        return position.manhattanDistanceFrom(this.position) <= checkedRange
     }
 
     fun getPositionsSkirtingRange(): Set<Position<Int>> {
